@@ -11,7 +11,9 @@
 }
 
 $Width: 1170px;
-$horse: green;  
+input{
+    display: none;
+}
 
 .fullscreen{
     overflow: hidden;
@@ -25,9 +27,17 @@ $horse: green;
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 105%;
-        animation: sky 5s alternate infinite;
-    }
+        width: 102%;
+        animation: a-sky 15s linear infinite;
+    } 
+    &__a-sky{
+        position: absolute;
+        left: -100vw;
+        bottom: 0;
+        width: 102%;
+        animation: a-sky 15s linear infinite;
+    } 
+    
     &__lefttrees{
         position: absolute;
         left: -40px;
@@ -53,16 +63,16 @@ $horse: green;
         left: 330px;
         bottom: 60px;
         width: 328px;
-height: 192px;
+        height: 192px;
     }
     &__birds{
         position: absolute;
         right: 200px;
         top: 90px;
         
-   
     }
     &__horse{
+        gap: 2px;
         position: absolute;
         left: 600px;
         bottom: 90px;
@@ -118,6 +128,9 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 text-align: center;
+    }
+    &__mobile svg , ul , li , .header__box-text{
+        display: none;
     }
 }
 
@@ -286,6 +299,7 @@ line-height: 25px; /* 166.667% */
         font-style: normal;
         font-weight: 400;
         line-height: 20px; /* 153.846% */
+        padding: 10px 20px;
     }
 }
 
@@ -304,8 +318,9 @@ line-height: 25px; /* 166.667% */
 .section-whyus{
     display: flex;
     margin: 0px auto;
-    gap: 20px;
+    gap: 25px;
     max-width: 1200px;
+    flex-wrap: wrap;
     &__inside{
         
         margin: 0 auto;
@@ -367,8 +382,9 @@ line-height: 25px; /* 166.667% */
     overflow: hidden;
     position: relative;
     margin-top: 130px;
-    height: 1300px;
+    height: 1600px;
     background: url(./img/bg-info.png);
+    background-repeat: no-repeat;
 
     
     &__cardbox{
@@ -511,7 +527,14 @@ line-height: 25px; /* 166.667% */
         position: absolute;
         bottom: 0;
         width: 103vw;
-        animation: sky 2s alternate infinite;
+        animation: a-sky 15s linear infinite;
+    }
+    &__a-sky{
+        position: absolute;
+        left: -100vw;
+        bottom: 0;
+        width: 103vw;
+        animation: a-sky 15s linear infinite;
     }
     &__grass{
         position: relative;
@@ -678,18 +701,37 @@ line-height: 36px; /* 120% */
 }
 
 
-@keyframes sky {
+/* @keyframes sky {
     0%{
         transform: translate(-4px);
     }
     100%{
         transform: translate(4px);
     }
-}
+} */
 #last{
     margin-top: -10px;
 }
 
+@keyframes mobile{
+    0%{
+        transform: translate(-1500px);
+    }
+    100%{
+        transform: translate(0px);
+    }
+}
+
+
+
+@keyframes a-sky {
+    0%{
+        transform: translate(0vw);
+    }
+    100%{
+        transform: translate(100vw);
+    }    
+}
 
 @media (max-width:1199px) {
     
@@ -805,4 +847,156 @@ height: 192px;
 
         
     }
+
+    .direction{
+
+        &__womenwithhorse{
+            display: none;
+        }
+        &__boywithhorse{
+            display: none;
+        }
+        &__sky{
+            display: none;
+        }
+        &__grass{
+            display: none;
+        }
+    }
+
+    .section-about__block{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
+
+@media (max-width: 767px) {
+    .fullscreen{
+        &__birds{
+            display: none;
+        }
+
+        &__horse{
+            display: none;
+        }
+
+        
+    }
+    .header{
+        &__nav{
+            display: none;
+
+        }
+        &__mobile svg , ul , li , .header__box-text{
+            display: block;
+        }
+        &__list-mobile{
+            display: none;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            color: #FFF;
+            text-align: center;
+            font-family: Roboto;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 50px; /* 333.333% */
+            text-transform: uppercase;
+            gap: 20px;
+        }
+        &__mobile{
+            display: none;
+            border-right: 5px solid #008139;
+            position: fixed;
+            z-index: 10;
+            top: 0px;
+            left: 0px;
+            width: 50vw;
+            height: 100vh;
+            opacity: 0.95;
+            background: #0D0D0D;
+
+            & svg{
+                position: absolute;
+                top: 17px;
+                right: 22px;
+            }
+        }
+        &__box{
+            display: flex;
+            flex-direction: row;
+            border-radius: 3px;
+            border: 1px solid #008139;
+            align-items: center;
+            padding: 8px 10px;
+            gap: 5px;
+
+
+        }
+        
+        &__box-text{
+            color: #202020;
+            font-family: Roboto;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 15px; /* 100% */
+        }
+
+        &__linia{
+            position: relative;
+            width: 10px;
+            height: 2px;
+            background: #008139;
+         
+
+
+    
+            &::before{
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 2px;
+                background: #008139;
+                top: 4px;
+                right: 0px;
+            }
+            &::after{
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 2px;
+                background: #008139;
+                top: -4px;
+                right: 0px;
+            }
+    
+            
+        }
+    }
+    /* input{
+        display: block;
+    }  */
+
+    input[type="checkbox"]:checked ~ .header__box .header__mobile{
+        display: block;
+        animation: mobile 1s linear;
+        
+    }
+    input[type="checkbox"]:checked ~ .header__ .hmobile svg .header__mobile{
+        display: block;
+        animation: mobile 1s alternate-reverse;
+        
+    }
+
+
+}
+
+/* .header__mobile{
+    transition: 0.5s;
+    display: block;
+} */
+
